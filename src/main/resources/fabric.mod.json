@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "firstpersonmodel",
+	"version": "${version}",
+	"name": "First Person Model",
+	"description": "See yourself in first person!",
+	"authors": [
+		"alfred",
+		"tr7z2"
+	],
+	"icon": "icon.png",
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.alfred.firstperson.FirstPersonModelModDummy"
+		],
+		"beforeGameStart": [
+			"com.alfred.firstperson.FirstPersonModelModDummy"
+		],
+		"afterGameStart": [
+			"com.alfred.firstperson.FirstPersonModelModDummy"
+		],
+		"recipesReady": [
+			"com.alfred.firstperson.FirstPersonModelModDummy"
+		]
+	},
+	"mixins": [
+		"firstperson.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${fabricloader}",
+		"halplibe": ">=${halplibe}",
+		"minecraft": "*",
+		"java": ">=${java}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu}"
+	}
+}
