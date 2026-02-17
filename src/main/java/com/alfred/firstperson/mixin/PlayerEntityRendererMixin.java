@@ -182,6 +182,11 @@ SOFTWARE.
 				z -= bodyOffset * Math.cos(Math.toRadians(realYaw));
 			}
 		}
+		if (entity instanceof Player realPlayer && realPlayer.isDwarf()) {
+			x *= 0.666f;
+			y = (y - 0.2f) * 0.666f;
+			z *= 0.666f;
+		}
 		offset = new Vector3f((float)x, (float)y, (float)z);
 	}
 
