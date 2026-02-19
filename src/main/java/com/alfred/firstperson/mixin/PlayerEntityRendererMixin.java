@@ -53,11 +53,11 @@ public abstract class PlayerEntityRendererMixin extends MobRenderer<Player> {
 		}
 	}
 
-	@Inject(method = "prepareArmor(Lnet/minecraft/core/entity/player/Player;IF)Z", at = @At("RETURN"))
+	@Inject(method = "prepareArmor(Lnet/minecraft/core/entity/player/Player;IF)Z", at = @At("HEAD"), cancellable = true)
 	private void hideHead(Player entity, int layer, float partialTick, CallbackInfoReturnable<Boolean> cir) {
 		Minecraft mc = Minecraft.getMinecraft();
-		if (entity == mc.thePlayer && mc.activeCamera instanceof EntityCameraFirstPerson && !gui)
-			this.modelArmorChestplate.head.visible = false;
+		if (entity == mc.thePlayer && mc.activeCamera instanceof EntityCameraFirstPerson && !gui && layer == 0)
+			cir.setReturnValue(false);
 	}
 
 	@Inject(method = "render(Lnet/minecraft/client/render/tessellator/Tessellator;Lnet/minecraft/core/entity/player/Player;DDDFF)V", at = @At("HEAD"))
